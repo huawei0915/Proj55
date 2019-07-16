@@ -1,6 +1,6 @@
 <?php
 $db_host = 'localhost';
-$db_name = 'click';
+$db_name = 'proj55';
 $db_user = 'wii';
 $db_pass = 'qwer1234';
 $db_charset = 'utf8';

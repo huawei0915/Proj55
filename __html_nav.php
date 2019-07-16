@@ -20,7 +20,17 @@
                 </li>
 
             </ul>
+            <ul class="navbar-nav">
+               
 
+                <li class="nav-item <?= $page_name=='data_insert' ? 'active' : ''  ?>">
+                    <a class="nav-link" href="login.php">登入</a>
+                </li>
+                <li class="nav-item <?= $page_name=='account' ? 'active' :  ''  ?>">
+                    <a class="nav-link" href="register.php">註冊</a>
+                </li>
+
+            </ul>
         </div>
     </div>
 </nav>
