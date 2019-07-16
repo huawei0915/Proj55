@@ -16,11 +16,11 @@ if(empty($_POST['email']) or empty($_POST['password']) or empty($_POST['nickname
     exit;
 }
 
-
+$hash=SHA1($_POST['email'].uniqid(). rand());   // 產生一個不容易相同的字串
 
 $stmt = $pdo->prepare("INSERT INTO `members`( `email`, `password`, `mobile`, `address`, `birthday`, `hash`,  `nickname`, `created_at`) VALUES (
      ?, SHA1(?), ?, ?,
-     ?, 'abc', ?, NOW()
+     ?, ?, ?, NOW()
  )");
 
 $stmt->execute([
@@ -29,6 +29,7 @@ $stmt->execute([
     $_POST['mobile'],
     $_POST['address'],
     $_POST['birthday'],
+    $hash,
     $_POST['nickname'],
 ]);
 

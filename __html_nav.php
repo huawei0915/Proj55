@@ -18,8 +18,24 @@
                 <li class="nav-item <?= $page_name=='account' ? 'active' :  ''  ?>">
                     <a class="nav-link" href="account.php">會員資料</a>
                 </li>
-
+                <li class="nav-item <?= $page_name=='formtest' ? 'active' :  ''  ?>">
+                    <a class="nav-link" href="formtest.php">form_test</a>
+                </li>
             </ul>
+
+            <?php if(isset($_SESSION['loginUser'])): ?>
+          
+            <ul class="navbar-nav">
+            
+               <li class="nav-item <?= $page_name=='data_insert' ? 'active' : ''  ?>">
+                   <a class="nav-link" href="edit_myself.php"> <?= $_SESSION['loginUser']['nickname']?>  </a>
+               </li>
+               <li class="nav-item <?= $page_name=='account' ? 'active' :  ''  ?>">
+                   <a class="nav-link" href="logout.php">登出</a>
+               </li>
+
+           </ul>
+            <?php else: ?>
             <ul class="navbar-nav">
                
 
@@ -31,6 +47,7 @@
                 </li>
 
             </ul>
+            <?php endif ?>
         </div>
     </div>
 </nav>
