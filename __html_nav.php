@@ -28,7 +28,7 @@
             <ul class="navbar-nav">
             
                <li class="nav-item <?= $page_name=='data_insert' ? 'active' : ''  ?>">
-                   <a class="nav-link" href="edit_myself.php"> <?= $_SESSION['loginUser']['nickname']?>  </a>
+                   <a class="nav-link" href="edit_my.php" id="my_nickname"> <?= $_SESSION['loginUser']['nickname']?>  </a>
                </li>
                <li class="nav-item <?= $page_name=='account' ? 'active' :  ''  ?>">
                    <a class="nav-link" href="logout.php">登出</a>

@@ -16,6 +16,21 @@ if(empty($_POST['email']) or empty($_POST['password']) or empty($_POST['nickname
     exit;
 }
 
+//檢查email是否有註冊過
+$sql = "SELECT * FROM `members` WHERE `email`=?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$_POST['email']]);
+if( $stmt->rowCount()>=1 ){
+    $result['code'] = 420;
+    $result['info'] = '此 email 已註冊過';
+
+    echo json_encode($result);
+    exit;
+}
+
+
+
+
 $hash=SHA1($_POST['email'].uniqid(). rand());   // 產生一個不容易相同的字串
 
 $stmt = $pdo->prepare("INSERT INTO `members`( `email`, `password`, `mobile`, `address`, `birthday`, `hash`,  `nickname`, `created_at`) VALUES (
